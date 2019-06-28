@@ -15,6 +15,6 @@ import java.util.*;
  */
 @BelongsToContract(IOUContract::class)
 data class IOUState(val amount:Amount<Currency>, val lender:Party, val borrower:Party,val paid:Amount<Currency> = Amount(0, amount.token)): ContractState {
-    override val participants: List<Party> get() = listOf()
+    override val participants: List<Party> get() = listOf(lender,borrower)
 
 }
